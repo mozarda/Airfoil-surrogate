@@ -1,11 +1,18 @@
-## ⚙️ Project Architecture
-This repository follows a production-ready PyTorch Lightning structure for modularity and reproducibility.
+# ✈️ Airfoil Self-Noise Surrogate
+**Real-time Aeroacoustic Prediction via ONNX Runtime Web**
 
-- **Config:** Managed via Hydra/YAML for easy hyperparameter sweeps.
-- **DataModules:** Handles sensor preprocessing and train/val/test splits.
-- **LightningModules:** Decouples the physics-informed training logic from the hardware.
+## 📌 Overview
+This project develops a high-fidelity surrogate model to predict the scaled sound pressure level of airfoil blade sections. By approximating complex CFD/Acoustic data with a Neural Network, we reduce simulation time from hours to milliseconds.
 
-## 🚀 Getting Started
-### Training
-```bash
-python src/pipeline/train.py --config config/baseline.yaml
+## 🏗️ Technical Architecture
+Developed with **PyTorch Lightning**, this repository features a modular pipeline:
+- `src/datasets`: Handles NASA Airfoil Self-Noise data (Frequency, Alpha, Chord, Velocity).
+- `src/modules`: LightningModule for training logic and metric tracking.
+- `src/pipeline`: Automated export to **ONNX** for browser-based inference.
+
+## 🚀 Web Demo
+The model is deployed via **Cloudflare Pages**, utilizing **ONNX Runtime Web** for client-side execution. 
+[View Live Demo →](https://ai-demo.rosyada.my.id)
+
+## 📊 Dataset
+NASA dataset consisting of 1,503 instances from aerodynamic and acoustic tests in anechoic wind tunnels.
