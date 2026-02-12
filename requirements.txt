@@ -1,2 +1,9 @@
-torch
-lightning
+# torch
+# lightning
+
+pandas
+scikit-learn
+xgboost
+matplotlib
+seaborn
+jupyter
